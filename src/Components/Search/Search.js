@@ -24,7 +24,7 @@ const Search = ({ setCoordinates, apiKey }) => {
       )
       const placeData = data.features
       setPlaceData(placeData)
-      console.log(placeData)
+      //console.log(placeData)
       // Set longitude to pass to the parent through props
       const long = data.features[0].geometry.coordinates[0]
       // Set latitude to pass to the parent through props
@@ -51,9 +51,9 @@ const Search = ({ setCoordinates, apiKey }) => {
       handlePlaceItem()
       getCoordinates()
     }
-    // if(event.key !== 'Enter') {
-    //   handlePlaceItem();
-    // }
+     if(event.key !== 'Enter') {
+       handlePlaceItem();
+     }
   }
 
   const handleClickIcon = () => {
@@ -72,6 +72,7 @@ const Search = ({ setCoordinates, apiKey }) => {
               onChange={handleOnChange}
               onKeyDown={handleKeyDown}
               placeholder="Try 'London', 'Berlin'... "
+              onClick={handlePlaceItem}
             />
             <button className={classes.icon} onClick={handleClickIcon}>
               <img src={searchIcon} alt='search' />
@@ -81,8 +82,9 @@ const Search = ({ setCoordinates, apiKey }) => {
                 {placeData?.map(item => (
                   <PlaceCard
                     key={item?.id}
-                    data={item}
+                    data={item} 
                     show={showCard}
+                    onSetCoordinatesItem={setCoordinates}
                   ></PlaceCard>
                 ))}
               </div>
