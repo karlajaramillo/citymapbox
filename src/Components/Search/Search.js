@@ -20,7 +20,7 @@ const Search = ({ setCoordinates, apiKey }) => {
   async function getCoordinates () {
     try {
       const { data } = await axios.get(
-        `https://api.mapbox.com/geocoding/v5/mapbox.places/${searchCity}.json?limit=2&access_token=${apiKey}`
+        `https://api.mapbox.com/geocoding/v5/mapbox.places/${searchCity}.json?limit=4&access_token=${apiKey}`
       )
       const placeData = data.features
       setPlaceData(placeData)

@@ -8,7 +8,7 @@
   top: 180px;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 380px;
+  width: 300px;
   z-index: 2000;
 }
 
@@ -54,7 +54,7 @@ color: rgba(170,170,170,.9);
     background: rgb(255 255 255 / 82%);
     margin: 0 2px;
     position: absolute;
-    width: 328px;
+    width: 248px;
 }
 
 @media (min-width: 650px) {
