@@ -2,7 +2,6 @@ import React, { Fragment } from "react";
 import classes from "./PlaceCard.module.css";
 
 const PlaceCard = ({ data, show, onSetCoordinatesItem }) => {
-  console.log(data)
   const long = data.geometry.coordinates[0]
   const lat = data.geometry.coordinates[1]
 
