@@ -59,14 +59,14 @@ color: rgba(170,170,170,.9);
 
 @media (min-width: 650px) {
   .places {
-    width: 396px;
+    width: 316px;
   }
   .search {
     top: 180px;
   }
   .search input { 
       font-size: 1.4rem;
-      width: 400px;
+      width: 320px;
   }
   .search .icon {
       width: 30px; 
