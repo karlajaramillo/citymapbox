@@ -54,10 +54,13 @@ color: rgba(170,170,170,.9);
     background: rgb(255 255 255 / 82%);
     margin: 0 2px;
     position: absolute;
-    width: 396px;
+    width: 328px;
 }
 
 @media (min-width: 650px) {
+  .places {
+    width: 396px;
+  }
   .search {
     top: 180px;
   }
