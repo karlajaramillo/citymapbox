@@ -7,7 +7,7 @@ import { Search } from './Components/Search'
 
 function App () {
   mapboxgl.accessToken =
-    'pk.eyJ1IjoiZ2Vibzk2IiwiYSI6ImNsMWY0NzczZzByZnQzcXFpanBpczBjcXQifQ.0w75NzO1o2vxGyuauC-vRA'
+    'pk.eyJ1Ijoia2F2YWphZ2EiLCJhIjoiY2x5Mm5sODZjMHl1aTJqcXhrZGQ3d2I4bCJ9.zK0l6L8hgp0FLwVRi9ysEQ'
 
   const mapContainer = React.useRef(null)
   const map = React.useRef(null)
@@ -22,7 +22,7 @@ function App () {
       //if (map.current) return // initialize map only once
       map.current = new mapboxgl.Map({
         container: mapContainer.current,
-        style: 'mapbox://styles/mapbox/streets-v11',
+        style: 'mapbox://styles/mapbox/streets-v12',
         center: [long, lat],
         zoom: zoom
       })
@@ -35,22 +35,26 @@ function App () {
     }
   }
   React.useEffect(() => {
-   getMap();
+    //if(map.current) return
+    console.log({ lat })
+    console.log({ long })
+    getMap();
   }, [long, lat])
 
   React.useEffect(() => {
     // wait for map to initialize
-    if (!map.current) return
-    map.current.on('move', () => {
-      setLong(map.current.getCenter().long)
-      setLat(map.current.getCenter().lat.toFixed(4))
-      setZoom(map.current.getZoom().toFixed(2))
-    })
+    // if (!map.current) return
+    // map.current.on('move', () => {
+    //   setLong(map.current?.getCenter().long)
+    //   setLat(map.current?.getCenter().lat.toFixed(4))
+    //   setZoom(map.current?.getZoom().toFixed(2))
+    // })
   })
 
   const setSearchCoordinates = (newLong, newLat) => {
     setLong(newLong);
     setLat(newLat);
+
   }
   return (
     <div className='App'>
