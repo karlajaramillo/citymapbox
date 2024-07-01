@@ -11,6 +11,7 @@ const Search = ({ setCoordinates, apiKey }) => {
   const [error, setError] = React.useState(false)
   const [loading, setLoading] = React.useState(true)
   const [showCard, setShowCard] = React.useState(false)
+  const [showCardList, setShowCardList] = React.useState(true)
 
   const handlePlaceItem = () => {
     setShowCard(!showCard)
@@ -50,6 +51,7 @@ const Search = ({ setCoordinates, apiKey }) => {
     if (event.key === 'Enter') {
       handlePlaceItem()
       getCoordinates()
+      setShowCardList(true)
     }
      if(event.key !== 'Enter') {
        handlePlaceItem();
@@ -78,16 +80,17 @@ const Search = ({ setCoordinates, apiKey }) => {
               <img src={searchIcon} alt='search' />
             </button>
             <div>
-              <div className={classes.places}>
+              {showCardList && <div className={classes.places}>
                 {placeData?.map(item => (
                   <PlaceCard
                     key={item?.id}
-                    data={item} 
+                    data={item}
                     show={showCard}
                     onSetCoordinatesItem={setCoordinates}
+                    onSetDisplayList={setShowCardList}
                   ></PlaceCard>
                 ))}
-              </div>
+              </div>}
             </div>
           </div>
         </div>
